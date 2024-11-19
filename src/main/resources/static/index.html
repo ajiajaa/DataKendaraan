@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kendaraan</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Aplikasi Data Kendaraan</h1>
+    <div class="first-container">
+        <Label>No Registrasi</Label><br><input type="text" id="noRegistrasi"><br>
+        <Label>Nama Pemilik</Label><br><input type="text" id="namaPemilik">
+    </div>
+    <div class="second-container">
+        <button id="search">search</button>
+        <button id="add-button">add</button>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>No Registrasi</th>
+                <th>Nama Pemilik</th>
+                <th>Merk Kendaraan</th>
+                <th>Tahun Pembuatan</th>
+                <th>Kapasitas</th>
+                <th>Warna</th>
+                <th>Bahan Bakar</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="data-table-body">
+        </tbody>
+    </table>
+    <div class= "third-container" id="pagination-controls">
+        <button id="prev-page" disabled><</button>
+        <span id="page-info"></span>
+        <button id="next-page">></button>
+    </div>
+    
+</body>
+</html>

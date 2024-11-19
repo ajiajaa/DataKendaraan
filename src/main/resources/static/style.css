@@ -1,0 +1,145 @@
+body{
+    padding:20px;
+    font-family : Arial, sans-serif;
+
+}
+.first-container{
+    background-color: #fce4d6;
+    padding: 10px;
+    border: solid #e6b798;
+}
+.second-container{
+    text-align: right;
+}
+.third-container{
+    text-align: center;
+    margin: 10px;
+}
+.second-container button:nth-child(1),
+.second-container button:nth-child(2) {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4472c4;
+    color: white;
+    margin: 5px 0 5px 0;
+}
+button{
+    cursor: pointer;
+}
+table{
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+}
+th, td {
+    text-align: center;
+    border: 1px solid black;
+}
+
+tr td:nth-child(3),
+tr td:nth-child(6),
+tr td:nth-child(7) {
+    text-align: left;
+}
+
+th {
+    background-color: #b4c6e7;
+}
+td a:nth-child(1) {
+    color: orangered;
+}
+td a:nth-child(2) {
+    color: blue;
+}
+td a:nth-child(3) {
+    color: red;
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.save{
+    padding: 10px 30px;
+    border: solid 1px black;
+    border-radius: 4px;
+    background-color: #4472c4;
+    color: white;
+    margin: 5px 0 5px 0;
+}
+.close{
+    padding: 10px 30px;
+    border: solid 1px black;
+    border-radius: 4px;
+    background-color: grey;
+    color: white;
+    margin: 5px 0 5px 0;
+}
+
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.info-grid p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.info-grid strong {
+    color: #555;
+    margin-right: 5px;
+}
+
+textarea{
+    resize: none;
+    height: 60px;
+    width: 170px;
+}
+
+input{
+    width: 170px;
+}
