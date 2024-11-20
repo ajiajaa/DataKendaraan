@@ -56,6 +56,11 @@ td a:nth-child(3) {
     color: red;
 }
 
+h1 {
+    display: flex;
+    align-items: center;
+}
+
 
 /* Modal */
 .modal {
@@ -97,6 +102,16 @@ td a:nth-child(3) {
 .modal-body {
     max-height: 70vh;
     overflow-y: auto;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+}
+
+.modal-footer button,
+.modal-footer svg {
+    margin-right: 10px;
 }
 
 #check, #prohibited {

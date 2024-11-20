@@ -102,25 +102,25 @@ $(document).ready(function() {
             $('.ask-grid').hide();
             $('.info-grid').show();
             $('.save').show();
-            $('.modal-footer').css('text-align', 'left');
+            $('.modal-footer').css('justify-content', 'flex-start');
         } else if (mode === 'edit') {
             $('.modal-header h2').text('Edit Data Kendaraan');
             $('.ask-grid').hide();
             $('.info-grid').show();
             $('.save').show();
             $('.save').text('Ubah');
-            $('.modal-footer').css('text-align', 'left');
+            $('.modal-footer').css('justify-content', 'flex-start');
         } else if (mode === 'detail') {
             $('.modal-header h2').text('Detail Data Kendaraan');
             $('.ask-grid').hide();
             $('.info-grid').show();
             $('.save').hide();
-            $('.modal-footer').css('text-align', 'left');
+            $('.modal-footer').css('justify-content', 'flex-start');
         } else if(mode === 'delete') {
             $('.modal-header h2').text('Delete Data Kendaraan');
             $('.info-grid').hide();
             $('.ask-grid').show();
-            $('.modal-footer').css('text-align', 'right');
+            $('.modal-footer').css('justify-content', 'flex-end');
             $('.save').show();
             $('.save').text('Ok');
         }
@@ -261,7 +261,7 @@ $(document).ready(function() {
             $('#check').hide();
             $('#prohibited').hide();
             $('#editModal').fadeOut();
-        }, 1000);
+        }, 750);
     });
 
     $(document).on('click', '.detail-link', function(e) {
