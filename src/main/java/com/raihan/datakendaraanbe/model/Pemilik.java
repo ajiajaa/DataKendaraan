@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "pemilik")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Pemilik {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

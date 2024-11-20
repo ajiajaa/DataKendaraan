@@ -99,6 +99,10 @@ td a:nth-child(3) {
     overflow-y: auto;
 }
 
+#check, #prohibited {
+    display: none;
+}
+
 .save{
     padding: 10px 30px;
     border: solid 1px black;
