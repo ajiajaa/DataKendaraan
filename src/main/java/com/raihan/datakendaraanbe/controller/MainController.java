@@ -5,6 +5,7 @@ import com.raihan.datakendaraanbe.model.Pemilik;
 import com.raihan.datakendaraanbe.service.KendaraanService;
 import com.raihan.datakendaraanbe.service.PemilikService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +26,12 @@ public class MainController {
             pemilikService.createPemilik(kendaraan.getPemilik());
         Kendaraan createdKendaraan = kendaraanService.createKendaraan(kendaraan);
 
-        return ResponseEntity.ok(createdKendaraan);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdKendaraan);
     }
     @GetMapping()
     public ResponseEntity<List<Pemilik>> getAll(){
         List<Pemilik> retrievedPemilik = pemilikService.getAllPemilik();
-        return ResponseEntity.ok(retrievedPemilik);
+        return ResponseEntity.status(HttpStatus.OK).body(retrievedPemilik);
     }
     @PutMapping
     public ResponseEntity<Kendaraan> updateKendaraan(
@@ -38,13 +39,13 @@ public class MainController {
             @RequestBody Kendaraan kendaraan) {
         Kendaraan updatedKendaraan = kendaraanService.update(nomorRegistrasi, kendaraan);
         if (updatedKendaraan == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.ok(updatedKendaraan);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedKendaraan);
     }
     @DeleteMapping
     public ResponseEntity<Kendaraan> delete(@RequestParam String nomorRegistrasi) {
         kendaraanService.delete(nomorRegistrasi);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
