@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -34,10 +35,10 @@ public class MainController {
         return ResponseEntity.status(HttpStatus.OK).body(retrievedPemilik);
     }
     @PutMapping
-    public ResponseEntity<Kendaraan> updateKendaraan(
+    public ResponseEntity<Optional<Kendaraan>> updateKendaraan(
             @RequestParam String nomorRegistrasi,
             @RequestBody Kendaraan kendaraan) {
-        Kendaraan updatedKendaraan = kendaraanService.update(nomorRegistrasi, kendaraan);
+        Optional<Kendaraan> updatedKendaraan = kendaraanService.update(nomorRegistrasi, kendaraan);
         if (updatedKendaraan == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

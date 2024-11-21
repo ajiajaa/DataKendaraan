@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 public class KendaraanService {
     @Autowired
@@ -14,15 +16,18 @@ public class KendaraanService {
     public Kendaraan createKendaraan(Kendaraan kendaraan) {
         return kendaraanRepository.save(kendaraan);
     }
-    public Kendaraan getByNomor(String id) {
-        return kendaraanRepository.findByNomorRegistrasi(id);
+    public Optional<Kendaraan> getByNomor(String id) {
+        return kendaraanRepository.findById(id);
     }
     @Transactional
-    public Kendaraan update(String nomorRegistrasi, Kendaraan updatedKendaraan) {
-        Kendaraan existingKendaraan = kendaraanRepository.findByNomorRegistrasi(nomorRegistrasi);
-        if (existingKendaraan == null) {
-            return null;
+    public Optional<Kendaraan> update(String nomorRegistrasi, Kendaraan updatedKendaraan) {
+        Optional<Kendaraan> existingKendaraanOpt = kendaraanRepository.findById(nomorRegistrasi);
+
+        if (!existingKendaraanOpt.isPresent()) {
+            return Optional.empty();
         }
+
+        Kendaraan existingKendaraan = existingKendaraanOpt.get();
 
         if (updatedKendaraan.getMerk() != null) {
             existingKendaraan.setMerk(updatedKendaraan.getMerk());
@@ -48,13 +53,15 @@ public class KendaraanService {
             existingKendaraan.setBahanBakar(updatedKendaraan.getBahanBakar());
         }
 
-        return kendaraanRepository.save(existingKendaraan);
+        Kendaraan updatedKendaraanResult = kendaraanRepository.save(existingKendaraan);
+        return Optional.of(updatedKendaraanResult);
     }
+
     @Transactional
     public void delete(String id) {
-        Kendaraan target = getByNomor(id);
-        if (target != null) {
-            kendaraanRepository.deleteByNomorRegistrasi(id);
+        Optional<Kendaraan> target = getByNomor(id);
+        if (target.isPresent()) {
+            kendaraanRepository.deleteById(id);
         }
     }
 
